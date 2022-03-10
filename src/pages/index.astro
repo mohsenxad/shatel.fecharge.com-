@@ -11,13 +11,13 @@ const serviceList = serviceManager.serviceList;
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
-let title = 'My Astro Site';
+let title = 'حرید بسته اینترنتی شاتل موبایل';
 
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
-<html lang="en">
+<html lang="fa">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
@@ -42,8 +42,13 @@ let title = 'My Astro Site';
 	<main>
 		<header>
 			<div>
-				<img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-				<h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
+				<img
+					src="/assets/logo.png"
+					alt="شاتل موبایل"
+				>
+				<h1>
+					خرید بسته اینترنتی شاتل
+				</h1>
 			</div>
 		</header>
 		
@@ -55,21 +60,6 @@ let title = 'My Astro Site';
 			))}
 		</ul>
 		
-
-		<Tour />
-
-
-		<!--
-
-		You can also use imported framework components directly in your markup!
-		
-		Note: by default, these components are NOT interactive on the client.
-		The `:visible` directive tells Astro to make it interactive.
-		
-		See https://docs.astro.build/core-concepts/component-hydration/ 
-
-		-->
-
 	</main>
 </body>
 </html>
