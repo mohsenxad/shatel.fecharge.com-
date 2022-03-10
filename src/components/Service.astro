@@ -1,0 +1,10 @@
+---
+import { Markdown } from 'astro/components';
+import ServiceDefinitionList from './service/ServiceDefinitionList.astro';
+const { service } = Astro.props;
+---
+
+<h1>
+    Service Title {service.title}
+</h1>
+<ServiceDefinitionList  service={service} />

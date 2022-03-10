@@ -1,0 +1,32 @@
+---
+import serviceManager from '../../services/serviceManager.json';
+
+export async function getStaticPaths() {
+    const serviceList = serviceManager.serviceList;
+    
+    return serviceList.map((service) => {
+        return {
+            params: { serviceId: service.serviceId.toString() },
+            props: { service },
+        };
+    });
+
+}  
+const {serviceId} = Astro.request.params;
+const { service } = Astro.props;
+
+---
+<h1>
+    {service.title}
+</h1>
+<button
+
+>
+BUY
+</button>
+<script>
+console.log("hhe")
+  // Will be rendered into the HTML exactly as written!
+  // ESM imports will not be resolved relative to the file.
+</script>
+

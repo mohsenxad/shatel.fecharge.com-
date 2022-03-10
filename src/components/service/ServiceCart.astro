@@ -1,0 +1,50 @@
+---
+import { Markdown } from 'astro/components';
+const { service } = Astro.props;
+---
+<dl>
+    <dt>
+        عنوان
+    </dt>
+    <dd>
+        بسته اینترنت 
+        {service.title}
+        ایرانسل
+    </dd>
+    <dt>
+        مدت اعتبار
+    </dt>
+    <dd>
+        {service.durationTitle}
+    </dd>
+    <dt>
+        مبلغ
+    </dt>
+    <dd>
+        {Math.ceil(parseInt(service.price)/(1.09))}
+    </dd>
+</dl>
+<a
+    href='/serviceDetail/${service.serviceId}'
+>
+    خرید آنلاین
+</a>
+
+<style lang="css">
+dd {
+    background: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+        color: var(--color-purple);
+        font-size: 2rem;
+    }
+}
+{
+    color:red;
+}
+</style>

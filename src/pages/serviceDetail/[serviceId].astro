@@ -1,0 +1,31 @@
+---
+import serviceManager from '../../services/serviceManager.json';
+import ServiceOrder from '../../components/service/ServiceOrder.astro';
+
+export async function getStaticPaths() {
+    const serviceList = serviceManager.serviceList;
+    return serviceList.map((service) => {
+        return {
+            params: { serviceId: service.serviceId.toString() },
+            props: { service },
+        };
+    });
+
+}  
+const {serviceId} = Astro.request.params;
+const { service } = Astro.props;
+
+
+---
+<h1>
+    {service.title}
+    
+</h1>
+<ServiceOrder service = 'service' />
+<button
+
+>
+BUY
+</button>
+
+
