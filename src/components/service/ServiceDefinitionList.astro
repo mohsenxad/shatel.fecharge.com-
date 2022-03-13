@@ -9,7 +9,7 @@ const { service } = Astro.props;
     <dd>
         بسته اینترنت 
         {service.title}
-        ایرانسل
+        شاتل موبایل
     </dd>
     <dt>
         مدت اعتبار
@@ -17,6 +17,14 @@ const { service } = Astro.props;
     <dd>
         {service.durationTitle}
     </dd>
+    
+    <dt>
+        مبلغ
+    </dt>
+    <dd>
+        {Math.ceil(parseInt(service.price)/(1.09))}
+    </dd>
+
     <dt>
         مبلغ قابل پرداخت
     </dt>
@@ -25,12 +33,6 @@ const { service } = Astro.props;
         <small>
         با احتساب مالیات
         </small>
-    </dd>
-    <dt>
-        مبلغ
-    </dt>
-    <dd>
-        {Math.ceil(parseInt(service.price)/(1.09))}
     </dd>
 </dl>
 

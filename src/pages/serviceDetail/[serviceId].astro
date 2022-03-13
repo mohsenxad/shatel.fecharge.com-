@@ -2,6 +2,7 @@
 import serviceManager from '../../services/serviceManager.json';
 import ServiceOrder from '../../components/service/ServiceOrder.astro';
 import OperatorDescription from '../../components/operator/OperatorDescription.astro';
+import ServiceDefinitionList from '../../components/service/ServiceDefinitionList.astro';
 
 export async function getStaticPaths() {
     const serviceList = serviceManager.serviceList;
@@ -57,20 +58,21 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 	</script>
 </head>
 <body>
+	<header>
+		<img
+				src="/assets/Logo.png"
+				alt="شاتل موبایل"
+		>
+		<h1>
+			خرید آنلاین  بسته اینترنتی 
+			{service.title} 
+			شاتل موبایل
+		</h1>
+		<OperatorDescription />
+	</header>
 	<main>
-		<header>
-			<img
-					src="/assets/Logo.png"
-					alt="شاتل موبایل"
-			>
-			<h1>
-				خرید آنلاین  بسته اینترنتی 
-				{service.title} 
-				شاتل موبایل
-			</h1>
-			<OperatorDescription />
-		</header>
-        
+		
+        <ServiceDefinitionList service = {service} />
         <ServiceOrder service = {service} />
 		
 	</main>
