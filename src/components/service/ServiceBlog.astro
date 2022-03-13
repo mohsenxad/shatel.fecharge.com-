@@ -1,0 +1,30 @@
+---
+const { service } = Astro.props;
+---
+<article>
+    <h2>
+        معرفی سرویس
+        {service.title}
+        شاتل موبایل
+    </h2>
+    <section>
+        <p>
+            بسته اینترنتی 
+            {service.title} 
+            مخصوص سیمکارت های شاتل میباشد و مدت اعتبار آن به صورت
+            {service.durationTitle} 
+            محاسبه می شود.
+        </p>
+        <p>
+            هزینه ی راه اندازی این سرویس 
+            {Math.ceil(parseInt(service.price)/(1.09))}
+            می باشد که با احتساب مالیات بر ارزش افزوده، 
+            {service.price}
+            توسط شما پرداخت می شود.
+        </p>
+    </section>
+  
+    <b>
+        جهت خرید {service.title} از دکمه ی خرید آنلاین استفاده کنید.
+    </b>
+</article>

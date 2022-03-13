@@ -1,9 +1,9 @@
 ---
 import serviceManager from '../../services/serviceManager.json';
+import ServiceHowTo from '../../components/service/ServiceHowTo.astro';
 
 export async function getStaticPaths() {
     const serviceList = serviceManager.serviceList;
-    
     return serviceList.map((service) => {
         return {
             params: { serviceId: service.serviceId.toString() },
@@ -15,20 +15,98 @@ export async function getStaticPaths() {
 const {serviceId} = Astro.request.params;
 const { service } = Astro.props;
 
-
+let title = 'حرید بسته اینترنتی شاتل موبایل';
 ---
-<h1>
-    {service.title}
-    
-</h1>
-<button
 
+
+<html
+	lang="fa"
+	dir="rtl"
 >
-BUY
-</button>
-<script>
-console.log("hhe")
-  // Will be rendered into the HTML exactly as written!
-  // ESM imports will not be resolved relative to the file.
-</script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{title}</title>
+
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<style global>
+		@import "../../styles/global.css";
+		@import "../../styles/home.css";
+	</style>
+
+	<style>
+		header {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			max-width: min(100%, 68ch);
+		}
+	</style>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VZE4RS3J1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-8VZE4RS3J1');
+	</script>
+</head>
+<body>
+	<main>
+		<header>
+			<div>
+				<img
+					src="/assets/Logo.png"
+					alt="شاتل موبایل"
+				>
+				<h1>
+					خرید بسته اینترنتی شاتل
+				</h1>
+			</div>
+		</header>
+		
+		<h1>
+            آموزش خرید آنلاین  بسته اینترنتی 
+            {service.title} 
+            شاتل موبایل
+        </h1>
+        <ServiceHowTo service={service} />
+		
+	</main>
+    <aside>
+        <ul>
+        <li>
+            <a
+                href='/blogDetail/${serviceId}'
+            >
+                معرفی بسته اینترنتی 
+                {service.title} 
+                شاتل موبایل
+            </a>
+        </li>
+        <li>
+            <a
+                href='/howToDetail/${serviceId}'
+            >
+                آموزش خرید آنلاین بسته اینترنتی 
+                {service.title} 
+                شاتل موبایل
+            </a>
+        </li>
+        </ul>
+    </aside>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
 

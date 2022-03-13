@@ -1,5 +1,4 @@
 ---
-import { Markdown } from 'astro/components';
 const { service } = Astro.props;
 ---
 
@@ -8,7 +7,9 @@ const { service } = Astro.props;
     method="post"
 >
     <fieldset >
-    <legend>سفارش آنلاین</legend>
+    <legend>
+        سفارش آنلاین {service.title}
+    </legend>
     <input type="hidden" id="serviceId" name="serviceId" value = '${service.serviceId}'><br><br>
     <input type="hidden" id="serviceTitle" name="serviceTitle" value = '${service.title}'><br><br>
     <label
@@ -17,13 +18,13 @@ const { service } = Astro.props;
         شماره ی سیمکارتی که میخواهید بسته ی مورد نظر بر روی آن فعال شود را وارد کنید
     </label>
     <input
-        type="tel"
-        id="cellNumber"
-        name="cellNumber"
-        maxlength = 11
-        minlength = 11
+        type = "tel"
+        id = "cellNumber"
+        name = "cellNumber"
+        maxlength = "11"
+        minlength = "11"
         required
-    >
+    />
 
     <button
         type="submit"

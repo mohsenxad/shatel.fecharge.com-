@@ -1,23 +1,14 @@
 ---
-// Component Imports
-import Tour from '../components/Tour.astro';
 import ServiceCart from '../components/service/ServiceCart.astro';
 import serviceManager from '../services/serviceManager.json';
 const serviceList = serviceManager.serviceList;
-// You can import components from any supported Framework here!
 
-
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
 let title = 'حرید بسته اینترنتی شاتل موبایل';
-
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
-<html lang="fa">
+<html
+	lang="fa"
+	dir="rtl"
+>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
@@ -41,11 +32,11 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VZE4RS3J1"></script>
 	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	gtag('config', 'G-8VZE4RS3J1');
+		gtag('config', 'G-8VZE4RS3J1');
 	</script>
 </head>
 <body>
