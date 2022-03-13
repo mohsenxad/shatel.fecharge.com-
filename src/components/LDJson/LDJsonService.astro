@@ -1,0 +1,72 @@
+---
+const { service } = Astro.props;
+
+const name = `بسته اینترنت {service.title} شاتل موبایل`;
+let jsonLd = {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": {name},
+        "sku": "{service.serviceId}",
+        "image": [
+            "https://cdn.fecharge.ir/images/logo.png",
+            "https://cdn.fecharge.ir/images/logo.png",
+            "https://cdn.fecharge.ir/images/logo.png"
+        ],
+        "description": "بسته اینترنت {service.title} مخصوص شاتل موبایل مباشد و اعتبار آن به صورت {service.durationTitle} محاسبه می شود.هزینه ی راه اندازی این سرویس {Math.ceil(parseInt(service.price)/(1.09))} ريال می باشد که با احتساب مالیات بر ارزش افزوده، {service.price} ريال توسط شما پرداخت می شود.",
+        "mpn": "{service.serviceId}",
+        "brand": {
+            "@type": "Brand",
+            "name": "اینترنت شاتل موبایل"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "reviewCount": "89"
+        },
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "4",
+            "bestRating": "5"
+            },
+            "author": {
+            "@type": "Person",
+            "name": "محسن محمدی"
+            }
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://irancellinternet.fecharge.ir/service/{service.serviceId}/{service.title}",
+            "priceCurrency": "IRR",
+            "price": "${service.vatPrice}",
+            "priceValidUntil": "2020-11-05",
+            "itemCondition": "http://schema.org/UsedCondition",
+            "availability": "http://schema.org/InStock",
+            "seller": {
+            "@type": "Organization",
+            "name": "اینترنت شاتل موبایل"
+            }
+        }
+    };
+const ll = {
+    title: 'title1'
+}
+---
+<!-- <script
+    type = "application/ld+json"
+>
+{
+    "name": "eval(${name})",
+   "seller": {
+            "@type": "Organization",
+            "name": "اینترنت شاتل موبایل"
+            }
+}
+</script> -->
+<script type= "application/javascript">
+let me = "me me"
+eval(me);
+alert(me);
+</script>
+

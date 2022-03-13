@@ -1,6 +1,7 @@
 ---
 import serviceManager from '../../services/serviceManager.json';
 import ServiceHowTo from '../../components/service/ServiceHowTo.astro';
+import OperatorDescription from '../../components/operator/OperatorDescription.astro';
 
 export async function getStaticPaths() {
     const serviceList = serviceManager.serviceList;
@@ -27,6 +28,8 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<title>{title}</title>
+	<link rel="amphtml" href='https://shatel.fecharge.ir/amp/howToDetail/${service.serviceId}' />
+    <link rel="canonical" href="https://shatel.fecharge.ir/howToDetail/${service.serviceId}" />
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<style global>
@@ -56,47 +59,50 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 <body>
 	<main>
 		<header>
-			<div>
-				<img
+			<img
 					src="/assets/Logo.png"
 					alt="شاتل موبایل"
-				>
-				<h1>
-					خرید بسته اینترنتی شاتل
-				</h1>
-			</div>
+			>
+			<h1>
+				آموزش خرید آنلاین  بسته اینترنتی 
+				{service.title} 
+				شاتل موبایل
+			</h1>
+			<OperatorDescription />
 		</header>
 		
-		<h1>
-            آموزش خرید آنلاین  بسته اینترنتی 
-            {service.title} 
-            شاتل موبایل
-        </h1>
         <ServiceHowTo service={service} />
 		
 	</main>
-    <aside>
-        <ul>
-        <li>
-            <a
-                href='/blogDetail/${serviceId}'
-            >
-                معرفی بسته اینترنتی 
-                {service.title} 
-                شاتل موبایل
-            </a>
-        </li>
-        <li>
-            <a
-                href='/howToDetail/${serviceId}'
-            >
-                آموزش خرید آنلاین بسته اینترنتی 
-                {service.title} 
-                شاتل موبایل
-            </a>
-        </li>
+    <ul>
+			<li>
+				<a
+					href='/serviceDetail/${serviceId}'
+				>
+					خرید آنلاین بسته اینترنتی 
+					{service.title} 
+					شاتل موبایل
+				</a>
+			</li>
+			<li>
+				<a
+					href='/blogDetail/${serviceId}'
+				>
+					معرفی بسته اینترنتی 
+					{service.title} 
+					شاتل موبایل
+				</a>
+			</li>
+			<li>
+				<a
+					href='/howToDetail/${serviceId}'
+				>
+					آموزش خرید آنلاین بسته اینترنتی 
+					{service.title} 
+					شاتل موبایل
+				</a>
+			</li>
         </ul>
-    </aside>
 </body>
 </html>
 
