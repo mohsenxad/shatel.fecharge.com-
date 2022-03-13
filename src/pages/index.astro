@@ -1,6 +1,7 @@
 ---
 import ServiceCart from '../components/service/ServiceCart.astro';
 import serviceManager from '../services/serviceManager.json';
+import OperatorDescription from '../components/operator/OperatorDescription.astro';
 const serviceList = serviceManager.serviceList;
 
 let title = 'حرید بسته اینترنتی شاتل موبایل';
@@ -40,18 +41,18 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 	</script>
 </head>
 <body>
+	<header>
+		<img
+			src="/assets/Logo.png"
+			alt="شاتل موبایل"
+		>
+		<h1>
+			خرید بسته اینترنتی شاتل
+		</h1>
+		<OperatorDescription />
+	</header>
 	<main>
-		<header>
-			<div>
-				<img
-					src="/assets/Logo.png"
-					alt="شاتل موبایل"
-				>
-				<h1>
-					خرید بسته اینترنتی شاتل
-				</h1>
-			</div>
-		</header>
+		
 		
 		<ul>
 			{serviceList.map((item) => (
