@@ -56,15 +56,24 @@ let keyWordList = keywordManager(service);
 			}
 		</style>
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-8VZE4RS3J1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'G-8VZE4RS3J1');
-		</script>
+		<amp-analytics type="gtag" data-credentials="include">
+			<script type="application/json">
+			{
+			"vars" : {
+				"gtag_id": "G-8VZE4RS3J1",
+				"config" : {
+				"G-8VZE4RS3J1": { "groups": "default" }
+				},
+				"triggers": {
+				"trackPageview": {
+					"on": "visible",
+					"request": "pageview"
+				}
+				}
+			}
+			}
+			</script>
+		</amp-analytics>
 	</head>
 	<body>
 		<main>
