@@ -1,0 +1,58 @@
+---
+const { service } = Astro.props;
+---
+
+<form
+    action-xhr="https://api.fecharge.ir/amp/getPaymentUrl"
+    target='_top'
+    method="post"
+    enctype="application/x-www-form-urlencoded"
+>
+    <fieldset >
+    <legend>
+        سفارش آنلاین {service.title}
+    </legend>
+    <input type="hidden" id="serviceId" name="serviceId" value = '${service.serviceId}'><br><br>
+    <input type="hidden" id="serviceTitle" name="serviceTitle" value = '${service.title}'><br><br>
+    <label
+        for="cellNumber"
+    >
+        شماره ی سیمکارتی که میخواهید بسته ی مورد نظر بر روی آن فعال شود را وارد کنید
+    </label>
+    <input
+        type = "tel"
+        id = "cellNumber"
+        name = "cellNumber"
+        maxlength = "11"
+        minlength = "11"
+        required
+    />
+
+    <button
+        type="submit"
+        id = 'btnOrder'
+        name = 'btnOrder'
+    >
+        خرید آنلاین
+    </button>
+    </fieldset>
+</form>
+
+<style lang="css">
+dd {
+    background: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+        color: var(--color-purple);
+        font-size: 2rem;
+    }
+}
+{
+    color:red;
+}
+</style>
