@@ -1,0 +1,41 @@
+---
+const { service } = Astro.props;
+---
+<aside>
+    <ul>
+        <li>
+            <a
+                href='/serviceDetail/${service.serviceId}'
+            >
+                خرید آنلاین بسته اینترنتی 
+                {service.title} 
+                شاتل موبایل
+            </a>
+        </li>
+        <li>
+            <a
+                href='/blogDetail/${service.serviceId}'
+            >
+                معرفی بسته اینترنتی 
+                {service.title} 
+                شاتل موبایل
+            </a>
+        </li>
+        <li>
+            <a
+                href='/howToDetail/${service.serviceId}'
+            >
+                آموزش خرید آنلاین بسته اینترنتی 
+                {service.title} 
+                شاتل موبایل
+            </a>
+        </li>
+        <li>
+            <a
+                href='/'
+            >
+               لیست تمام بسته اینترنت شاتل موبایل
+            </a>
+        </li>
+    </ul>
+</aside>

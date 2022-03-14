@@ -1,8 +1,16 @@
 ---
 import ServiceCart from '../components/service/ServiceCart.astro';
-import serviceManager from '../services/serviceManager.json';
 import OperatorDescription from '../components/operator/OperatorDescription.astro';
+import KeywordMetaTag from '../components/metaTag/keywordMetaTag.astro';
+import SearchBotTag from "../components/metaTag/searchBotTag.astro";
+import DescriptionMetaTag from '../components/metaTag/descriptionMetaTag.astro';
+import Footer from '../components/footer/footer.astro';
+
+import serviceManager from '../services/serviceManager.json';
+import keywordManager from '../services/keywordManager.js';
+
 const serviceList = serviceManager.serviceList;
+const keyWordList = keywordManager();
 
 let title = 'حرید بسته اینترنتی شاتل موبایل';
 ---
@@ -14,7 +22,9 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<title>{title}</title>
-
+	<KeywordMetaTag keyWordList={keyWordList}/>
+	<SearchBotTag />
+	<DescriptionMetaTag />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<style global>
 		@import "../styles/global.css";
@@ -41,6 +51,7 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 	</script>
 </head>
 <body>
+	
 	<header>
 		<img
 			src="/assets/Logo.png"
@@ -63,5 +74,6 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 		</ul>
 		
 	</main>
+	<Footer />
 </body>
 </html>

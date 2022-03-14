@@ -2,6 +2,13 @@
 import serviceManager from '../../../services/serviceManager.json';
 import ServiceBlog from '../../../components/service/ServiceBlog.astro';
 import OperatorDescription from '../../../components/operator/OperatorDescription.astro';
+import KeywordMetaTag from '../../../components/metaTag/keywordMetaTag.astro';
+import SearchBotTag from "../../../components/metaTag/searchBotTag.astro";
+import DescriptionMetaTag from "../../../components/metaTag/descriptionMetaTag.astro";
+import Aside from '../../../components/aside/aside.astro';
+import Footer from '../../../components/footer/footer.astro';
+
+import keywordManager from '../../../services/keywordManager.js';
 
 export async function getStaticPaths() {
     const serviceList = serviceManager.serviceList;
@@ -16,7 +23,8 @@ export async function getStaticPaths() {
 const {serviceId} = Astro.request.params;
 const { service } = Astro.props;
 
-let title = 'حرید بسته اینترنتی شاتل موبایل';
+let title = `معرفی بسته اینترنتی ${service.title} شاتل موبایل`;
+let keyWordList = keywordManager(service);
 ---
 
 <!doctype html>
@@ -29,12 +37,13 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<title>{title}</title>
-
+	<KeywordMetaTag keyWordList={keyWordList}/>
+	<SearchBotTag />
+	<DescriptionMetaTag  service = {service} />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<link rel="canonical" href='https://shatel.fecharge.ir/blogDetail/${service.serviceId}' />
 	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 	
 	<style amp-custom>
@@ -64,9 +73,7 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 					alt="شاتل موبایل"
 			>
 			<h1>
-				معرفی بسته اینترنتی 
-				{service.title} 
-				شاتل موبایل
+				{title}
 			</h1>
 			<OperatorDescription />
 		</header>
@@ -75,37 +82,8 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
         <ServiceBlog service={service} />
 		
 	</main>
-    <aside>
-        <ul>
-			<li>
-				<a
-					href='/serviceDetail/${serviceId}'
-				>
-					خرید آنلاین بسته اینترنتی 
-					{service.title} 
-					شاتل موبایل
-				</a>
-			</li>
-			<li>
-				<a
-					href='/blogDetail/${serviceId}'
-				>
-					معرفی بسته اینترنتی 
-					{service.title} 
-					شاتل موبایل
-				</a>
-			</li>
-			<li>
-				<a
-					href='/howToDetail/${serviceId}'
-				>
-					آموزش خرید آنلاین بسته اینترنتی 
-					{service.title} 
-					شاتل موبایل
-				</a>
-			</li>
-        </ul>
-    </aside>
+    <Aside service={service} />
+	<Footer />
 </body>
 </html>
 

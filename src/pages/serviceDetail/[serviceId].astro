@@ -1,9 +1,18 @@
 ---
-import serviceManager from '../../services/serviceManager.json';
+
 import ServiceOrder from '../../components/service/ServiceOrder.astro';
 import OperatorDescription from '../../components/operator/OperatorDescription.astro';
 import ServiceDefinitionList from '../../components/service/ServiceDefinitionList.astro';
+import KeywordMetaTag from '../../components/metaTag/keywordMetaTag.astro';
+import SearchBotTag from "../../components/metaTag/searchBotTag.astro";
+import DescriptionMetaTag from "../../components/metaTag/descriptionMetaTag.astro";
 
+import Aside from '../../components/aside/aside.astro';
+import Footer from '../../components/footer/footer.astro';
+
+import keywordManager from '../../services/keywordManager.js';
+
+import serviceManager from '../../services/serviceManager.json';
 export async function getStaticPaths() {
     const serviceList = serviceManager.serviceList;
     return serviceList.map((service) => {
@@ -17,7 +26,8 @@ export async function getStaticPaths() {
 const {serviceId} = Astro.request.params;
 const { service } = Astro.props;
 
-let title = 'حرید بسته اینترنتی شاتل موبایل';
+let title = `خرید آنلاین  بسته اینترنتی ${service.title} شاتل موبایل`;
+let keyWordList = keywordManager(service)
 ---
 
 
@@ -29,6 +39,9 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<title>{title}</title>
+	<KeywordMetaTag keyWordList={keyWordList}/>
+	<SearchBotTag />
+	<DescriptionMetaTag  service = {service} />
 	<link rel="amphtml" href='https://shatel.fecharge.ir/amp/serviceDetail/${service.serviceId}' />
     <link rel="canonical" href="https://shatel.fecharge.ir/serviceDetail/${service.serviceId}" />
 
@@ -64,9 +77,7 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
 				alt="شاتل موبایل"
 		>
 		<h1>
-			خرید آنلاین  بسته اینترنتی 
-			{service.title} 
-			شاتل موبایل
+			{title}
 		</h1>
 		<OperatorDescription />
 	</header>
@@ -76,35 +87,8 @@ let title = 'حرید بسته اینترنتی شاتل موبایل';
         <ServiceOrder service = {service} />
 		
 	</main>
-    <ul>
-			<li>
-				<a
-					href='/serviceDetail/${serviceId}'
-				>
-					خرید آنلاین بسته اینترنتی 
-					{service.title} 
-					شاتل موبایل
-				</a>
-			</li>
-			<li>
-				<a
-					href='/blogDetail/${serviceId}'
-				>
-					معرفی بسته اینترنتی 
-					{service.title} 
-					شاتل موبایل
-				</a>
-			</li>
-			<li>
-				<a
-					href='/howToDetail/${serviceId}'
-				>
-					آموزش خرید آنلاین بسته اینترنتی 
-					{service.title} 
-					شاتل موبایل
-				</a>
-			</li>
-        </ul>
+	<Aside service = {service} />
+	<Footer />
 </body>
 </html>
 

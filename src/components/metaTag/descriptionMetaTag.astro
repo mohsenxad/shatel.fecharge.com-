@@ -1,0 +1,13 @@
+---
+const { service } = Astro.props;
+
+let content = function(){
+    let result = 'خرید آنلاین بسته اینترنت شاتل موبایل'
+    if(service){
+        result = result + `| بسته اینترنتی ${service.title} مخصوص سیمکارت های شاتل میباشد و مدت اعتبار آن به صورت ${service.durationTitle} محاسبه می شود.هزینه ی راه اندازی این سرویس ${Math.ceil(parseInt(service.price)/(1.09))}می باشد که با احتساب مالیات بر ارزش افزوده، ${service.price}توسط شما پرداخت می شود.
+            `;
+    }
+    return result;
+}
+---
+<meta name="description" content="${content}">
